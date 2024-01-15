@@ -12,7 +12,8 @@ public class StudentService {
     public List<Student> findAllStudents() {
         return List.of(
                 new Student("Diego", "Santander", LocalDate.now(), "diegofesh@gmail.com", "39"),
-                new Student("Martha", "Sierra", LocalDate.now(), "martha@gmail.com", "31")
+                new Student("Martha", "Sierra", LocalDate.now(), "martha@gmail.com", "31"),
+                new Student("Martina", "Fresa", LocalDate.now(), "fresa@gmail.com", "34")
         );
     }
 }
