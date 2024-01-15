@@ -1,4 +1,4 @@
-package com.dfesh.form.springdemo.student.model;
+package com.dfesh.form.springdemo.student.model.Student;
 
 import lombok.Getter;
 import lombok.Setter;

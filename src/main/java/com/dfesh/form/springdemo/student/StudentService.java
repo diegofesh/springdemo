@@ -1,6 +1,6 @@
 package com.dfesh.form.springdemo.student;
 
-import com.dfesh.form.springdemo.student.model.Student;
+import com.dfesh.form.springdemo.student.model.Student.Student;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
