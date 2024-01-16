@@ -1,10 +1,7 @@
 package com.dfesh.form.springdemo.student;
 
 import com.dfesh.form.springdemo.student.model.Student.Student;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +16,29 @@ public class StudentController {
         this.service = service;
     }
 
+    @PostMapping
+    public Student saveStudent(@RequestBody Student student) {
+        return service.saveStudent(student);
+    }
+
     @GetMapping
     public List<Student> findAllStudents() {
         return service.findAllStudents();
+    }
+
+    @GetMapping("/{email}")
+    public Student findByEmail(@PathVariable String email){
+        return service.findByEmail(email);
+    }
+
+    @PutMapping
+    public Student updateStudent(@RequestBody Student student){
+        return service.updateStudent(student);
+    }
+
+    @DeleteMapping("/{email}")
+    public void deleteStudent(@PathVariable String email){
+        service.deleteStudentByEmail(email);
     }
 
 }
