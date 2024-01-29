@@ -1,13 +1,21 @@
 package com.dfesh.form.springdemo.student.model.Student;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "student")
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String firstname;
 
@@ -15,18 +23,24 @@ public class Student {
 
     private LocalDate dateOfBirth;
 
+    @Column(unique = true)
     private String email;
 
-    private String age;
+    @Transient
+    private int age;
 
     public Student() {
     }
 
-    public Student(String firstname, String lastname, LocalDate dateOfBirth, String email, String age) {
+    public Student(String firstname, String lastname, LocalDate dateOfBirth, String email, int age) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.age = age;
+    }
+
+    public int getAge() {
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 }

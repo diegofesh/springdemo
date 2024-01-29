@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentService implements StudentInterface {
+public class InMemoryStudentService implements StudentInterface {
 
     private final StudentDao studentDao;
 
-    public StudentService(StudentDao studentDao) {
+    public InMemoryStudentService(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
 
